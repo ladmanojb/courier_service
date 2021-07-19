@@ -21,13 +21,13 @@ class Order < ApplicationRecord
   end
 
 	private
-  def generate_token
-    self.order_number = Digest::SHA1.hexdigest([Time.now, rand].join)[0..12].upcase
-    generate_token if Order.exists?(order_number: self.order_number)
-  end
+	  def generate_token
+	    self.order_number = Digest::SHA1.hexdigest([Time.now, rand].join)[0..12].upcase
+	    generate_token if Order.exists?(order_number: self.order_number)
+	  end
 
-  def send_email
-		mail = OrderMailer.welcome_email(self)
-		mail.deliver_later
-  end
+	  def send_email
+			mail = OrderMailer.welcome_email(self)
+			mail.deliver_now
+	  end
 end
