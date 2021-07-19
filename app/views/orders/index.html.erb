@@ -4,14 +4,14 @@ Courier Service Application
 	<td><%= link_to "New Order", new_order_path %></td>
 	<td>&nbsp;&nbsp; </td>
 	<td>
-		<%= form_tag(search_orders_path, :method => "get",   
-	    class: 'navbar-form navbar-left') do %>  
-	  		<div class="input-group">  
-	    		<%= search_field_tag :search, params[:search], placeholder: "Search Order", class: "form-control" %>  
-	    		<div class="input-group-btn">  
-      			<%= button_tag "S", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
-			    </div>  
-			  </div>  
+		<%= form_tag(search_orders_path, :method => "get",
+	    class: 'navbar-form navbar-left') do %>
+	  		<div class="input-group">
+	    		<%= search_field_tag :search, params[:search], placeholder: "Search Order", class: "form-control" %>
+	    		<div class="input-group-btn">
+      			<%= button_tag "S", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+			    </div>
+			  </div>
 		<% end %>
 	</td>
 	</tr>

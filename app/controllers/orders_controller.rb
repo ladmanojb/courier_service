@@ -21,15 +21,12 @@ class OrdersController < ApplicationController
    	end
 	end
 
-	def search  
-		p"-----1"
-	  if params[:search].blank?  
-	  	p"-----2"
-	    redirect_to(root_path, alert: 'Empty field!') and return  
-	  else  
-	  	p"-----3"
-	    @results = Order.search(params[:search].downcase)  
-	  end  
+	def search
+	  if params[:search].blank?
+	    redirect_to(root_path, alert: 'Empty field!') and return
+	  else
+	    @results = Order.search(params[:search].downcase)
+	  end
 	end
 
 	private
