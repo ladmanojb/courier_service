@@ -1,0 +1,34 @@
+Courier Service Application
+<table>
+<tr>
+	<td><%= button_to "New Order", new_order_path %></td>
+	<td>&nbsp;&nbsp; </td>
+	<td>
+		<%= form_tag(search_orders_path, :method => "get",   
+	    class: 'navbar-form navbar-left') do %>  
+	  		<div class="input-group">  
+	    		<%= search_field_tag :search, params[:search], placeholder: "Search Order", class: "form-control" %>  
+	    		<div class="input-group-btn">  
+      			<%= button_tag "S", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+			    </div>  
+			  </div>  
+		<% end %>
+	</td>
+	</tr>
+</table>
+</br>
+
+<h1>List of Orders</h1>
+<table>
+	<tr>
+		<th>Order Number</th>
+		<th>Order Status</th>
+	</tr>
+<% @orders.each do |order| %>
+<tr>
+	<td><%= order.order_number %></td>
+	<td>&nbsp;&nbsp; </td>
+	<td><%= order.status %></td>
+</tr>
+<% end %>
+</table>

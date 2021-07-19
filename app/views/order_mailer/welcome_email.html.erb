@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>You have succesfully placed your order with order with order number <%= @order.order_number %></h1>
+    <p>
+      Sender of order is <%= @order.sender_full_name %>.<br>
+    </p>
+    <p>
+      Receiver of order is <%= @order.receiver_full_name %>.<br>
+    </p>
+
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

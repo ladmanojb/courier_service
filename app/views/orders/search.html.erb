@@ -1,0 +1,22 @@
+<h3>Search Result</h3>  
+<table>
+	<tr>
+		<th>Order Number</th>
+		<th>&nbsp;&nbsp;&nbsp;</th>
+		<th>Status</th>
+	</tr>
+<% @results.each do |result| %> 
+<tr>
+
+  <td>
+    	<%= result.order_number %>
+	</td>
+  <td>&nbsp;&nbsp;&nbsp;
+	</td>
+	<td>
+	    <b><%= result.status %></b>
+  </td>
+
+</tr> 
+<% end %>
+</table>

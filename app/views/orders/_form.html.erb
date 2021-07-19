@@ -1,0 +1,86 @@
+<% if order.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+    <ul>
+      <% order.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: order) do |order_fields| %>
+	<table>
+		<%= order_fields.fields_for :sender do |sender_field|%>
+			<tr width="100%">
+				<td><%= sender_field.label :sender_full_name  %></td>
+				<td><%= sender_field.text_field :full_name %></td>
+
+				<td><%= sender_field.label :sender_phone_number  %></td>
+				<td><%= sender_field.text_field :phone_number %></td>
+			</tr>
+
+			<tr>
+				<td><%= sender_field.label :sender_email_id  %></td>
+				<td><%= sender_field.text_field :email_id %></td>
+			</tr>
+
+			<%= sender_field.fields_for :addresses do |address_fields| %>
+				<tr>
+					<td><%= address_fields.label :sender_address  %></td>
+					<td><%= address_fields.text_field :address %></td>
+		
+				<td><%= address_fields.label :sender_pincode  %></td>
+				<td><%= address_fields.text_field :pincode %></td>
+			</tr>
+
+			<% end %>
+		<% end %>
+		<%= order_fields.fields_for :receiver do |receiver_field|%>
+			<tr>
+				<td><%= receiver_field.label :receiver_full_name  %></td>
+				<td><%= receiver_field.text_field :full_name %></td>
+
+				<td><%= receiver_field.label :receiver_phone_number  %></td>
+				<td><%= receiver_field.text_field :phone_number %></td>
+			</tr>
+
+			<tr>
+				<td><%= receiver_field.label :receiver_email_id  %></td>
+				<td><%= receiver_field.text_field :email_id %></td>
+			</tr>
+
+			<%= receiver_field.fields_for :addresses do |address_fields| %>
+				<tr>
+				</td>
+					<td><%= address_fields.label :receiver_address  %></td>
+					<td><%= address_fields.text_field :address %></td>
+
+				<td><%= address_fields.label :receiver_pincode  %></td>
+				<td><%= address_fields.text_field :pincode %></td>
+			</tr>
+			<% end %>
+		<% end %>
+		<tr>
+			<td><%= order_fields.label :status  %></td>
+			<td><%= order_fields.text_field :status %></td>
+
+			<td><%= order_fields.label :weight  %></td>
+			<td><%= order_fields.text_field :weight %></td>
+		</tr>
+		<tr>
+			<td><%= order_fields.label :type_of_service  %></td>
+			<td><%= order_fields.text_field :type_of_service %></td>
+
+			<td><%= order_fields.label :cost_of_service  %></td>
+			<td><%= order_fields.number_field :cost_of_service %></td>
+		</tr>
+		<tr>
+			<td><%= order_fields.label :payment_mode  %></td>
+			<td><%= order_fields.text_field :payment_mode %></td>
+		</tr>
+	</table>
+
+	<%= order_fields.submit %>
+<% end %>
