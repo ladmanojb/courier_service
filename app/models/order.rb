@@ -27,7 +27,6 @@ class Order < ApplicationRecord
 	  end
 
 	  def send_email
-			mail = OrderMailer.welcome_email(self)
-			mail.deliver_now
+			OrderMailer.with(order: self).order_created.deliver_later
 	  end
 end
