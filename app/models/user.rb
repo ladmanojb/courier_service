@@ -5,4 +5,8 @@ class User < ApplicationRecord
     accepts_nested_attributes_for :addresses
 
     validates_presence_of :full_name, :phone_number, :email_id
+
+    TYPE_OF_SERVICE = ['Speed Post', 'Regular']
+    PAYMENT_MODE = ['COD', 'Prepaid']
+    STATUS = ['Sent', 'In Transit', 'Delivered']
 end

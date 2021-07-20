@@ -6,12 +6,14 @@
   <body>
     <h1>You have succesfully placed your order with order with order number <%= @order.order_number %></h1>
     <p>
-      Sender of order is <%= @order.sender_full_name %>.<br>
+      Dear <%= @order.sender_full_name%>,<br></br>
+      Your order has been dispatched.<br>
+      Your tracking number is: <%= @order.order_number %></br>
+      You can track it easily using above number.</br>
+      Your order is due to be delivered within 10-12 business days (that’s 12-16 days in total).</br>
+      It is advised to track the order online every 2-3 days in order to have the most up to date information on the shipping progress.</br>
+      We are here for any inquiry, do not hesitate to contact us.</br>
+      Best regards,
     </p>
-    <p>
-      Receiver of order is <%= @order.receiver_full_name %>.<br>
-    </p>
-
-    <p>Thanks for joining and have a great day!</p>
   </body>
 </html>

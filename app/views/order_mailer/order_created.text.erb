@@ -1,8 +1,13 @@
 >You have succesfully placed your order with order with order number  <%= @order.order_number %>
 ===============================================
 
-Sender of order is <%= @order.sender_full_name %>.
+Dear <%= @order.sender_full_name%>,
 
-Receiver of order is <%= @order.receiver_full_name %>.
+Your order has been dispatched.
+Your tracking number is: <%= @order.order_number %>
+You can track it easily using above number.
+Your order is due to be delivered within 10-12 business days (that’s 12-16 days in total).
+It is advised to track the order online every 2-3 days in order to have the most up to date information on the shipping progress.
+We are here for any inquiry, do not hesitate to contact us.
 
-Thanks for joining and have a great day!
+Best regards,

@@ -64,21 +64,22 @@
 		<% end %>
 		<tr>
 			<td><%= order_fields.label :status  %></td>
-			<td><%= order_fields.text_field :status %></td>
+			<td><%= order_fields.select :status, options_for_select(User::STATUS) %></td>
 
 			<td><%= order_fields.label :weight  %></td>
 			<td><%= order_fields.text_field :weight %></td>
 		</tr>
 		<tr>
 			<td><%= order_fields.label :type_of_service  %></td>
-			<td><%= order_fields.text_field :type_of_service %></td>
+			<td><%= order_fields.select :type_of_service, options_for_select(User::TYPE_OF_SERVICE) %></td>
+
 
 			<td><%= order_fields.label :cost_of_service  %></td>
 			<td><%= order_fields.number_field :cost_of_service %></td>
 		</tr>
 		<tr>
 			<td><%= order_fields.label :payment_mode  %></td>
-			<td><%= order_fields.text_field :payment_mode %></td>
+			<td><%= order_fields.select :payment_mode, options_for_select(User::PAYMENT_MODE) %></td>
 		</tr>
 	</table>
 
